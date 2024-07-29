@@ -1,0 +1,121 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+@model IEnumerable<Eticaret12.Models.Album>
+
+@{
+    ViewData["Title"] = "Albumler";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<div class="col-md-8">
+
+<h1>Albumler</h1>
+
+<p>
+        <a asp-action="AlbumEkle"> Yeni Ekle </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                
+                <th>
+                @Html.DisplayNameFor(model => model.Baslik)
+                </th>
+                
+
+                <th>
+                    @Html.DisplayNameFor(model => model.AlbumId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KitabınAdı)
+                </th>
+                <th>
+                    @Html.DisplayName("Tür")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fiyat)
+                </th>
+               
+              
+                <th>
+                    @Html.DisplayNameFor(model => model.KitapArtUrl)
+                </th>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.StokdaVarmı)
+                </th>
+
+                
+
+               
+               
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                    
+                <td>
+                @Html.DisplayFor(modelItem => item.Baslik)
+                </td>
+                
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AlbumId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KitabınAdı)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tur.TurAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fiyat)
+                    </td>
+
+                    <td>
+                        <img src="@item.KitapArtUrl" style="width:75px; height:75px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StokdaVarmı)
+                    </td>
+                 
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AlbumId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AlbumId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AlbumId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    <button  class="btn btn-danger" onclick="sil();">Silinenleri Getir </button>
+    <button class="btn btn-primary" onclick="AnasayfayaGit();"> Anasayfaya Git </button>
+</div>
+
+<script>
+    function sil()
+    {
+        $.ajax({
+            type:'Post',
+            url: "/Album/TopluSilme",
+            success: function () {
+               // alert("success");
+                window.location.reload();
+            },
+            error: function (error,hata,mesage) {
+               
+            }
+        })
+    }
+
+    function AnasayfayaGit() {
+        window.location.href = "/Home/Index";
+    }
+</script>

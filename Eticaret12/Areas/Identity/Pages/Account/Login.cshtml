@@ -1,0 +1,63 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+     // Layout = "_LayoutNew";
+}
+
+@* 
+<div class="main-banner" id="top">
+<div class="container-fluid">
+	 *@<div>
+		
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card my-5">
+
+						<form id="account" method="post" class="card-body cardbody-color p-lg-5">
+
+							<div class="text-center">
+								<img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+									 width="100px" alt="profile">
+							</div>
+
+							<div class="mb-3">
+								<input asp-for="Input.Email" class="form-control" id="Username" aria-describedby="emailHelp"
+									   placeholder="User Name">
+
+								@*     <input   autocomplete="username" aria-required="true" placeholder="name@example.com" />       *@
+								<span asp-validation-for="Input.Email" class="text-danger"></span>
+							</div>
+							<div class="mb-3">
+								<input asp-for="Input.Password" type="password" class="form-control" id="password" placeholder="password">
+
+								@* <input  autocomplete="current-password" aria-required="true" placeholder="password" /> *@
+
+								<span asp-validation-for="Input.Password" class="text-danger"></span>
+
+							</div>
+							<div class="text-center"><button type="submit" class="btn btn-secondary">Login</button></div>
+
+							<div id="emailHelp" class="form-text text-center mb-5 text-dark" >
+								Not
+								Registered?  <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Üye  Ol</a>
+							</div>
+							<div>
+								<a  id="resend-confirmation" asp-page="./Manage/SetPassword">ManageSet Password</a>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

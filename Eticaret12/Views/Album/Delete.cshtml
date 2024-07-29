@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+
+@model Eticaret12.Models.Album
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="col-md-10">
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Album</h4>
+    <hr />
+    <dl >
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KitabınAdı)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KitabınAdı)
+        </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Baslik)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Baslik)
+            </dd>
+       
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KitapArtUrl)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KitapArtUrl)
+            </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StokdaVarmı)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StokdaVarmı)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="AlbumId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Albumler">Back to List</a>
+    </form>
+</div>
+</div>

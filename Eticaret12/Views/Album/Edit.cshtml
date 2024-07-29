@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+@model Eticaret12.Models.Album
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="col-md-8">
+<h1>Edit</h1>
+
+<h4>Album</h4>
+<hr />
+
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AlbumId" />
+
+        <div class="form-group">
+            <label asp-for="Baslik" class="control-label"></label>
+            <input asp-for="Baslik" class="form-control" />
+            <span asp-validation-for="Baslik" class="text-danger"></span>
+        </div> 
+        <div class="form-group">
+            <label asp-for="AlbumId" class="control-label"></label>
+            <input asp-for="AlbumId" class="form-control" />
+            <span asp-validation-for="AlbumId" class="text-danger"></span>
+        </div>
+      @*   <div class="form-group">
+            <label>Fotoğraf Seçimi</label>
+            <br />
+            <input type="file" id="dosyaYukle" name="file" />
+        </div> *@
+       
+       @*  <div class="form-group">
+            <label asp-for="KitapArtUrl" class="control-label"></label>
+            <input asp-for="KitapArtUrl" class="form-control" />
+            <span asp-validation-for="KitapArtUrl" class="text-danger"></span>
+        </div> *@
+
+        <div class="form-group">
+                <label asp-for="KitabınAdı" class="control-label"></label>
+                <input asp-for="KitabınAdı" class="form-control" />
+                <span asp-validation-for="KitabınAdı" class="text-danger"></span>
+            </div>
+         <div class="form-group">
+            <label asp-for="Tur" class="control-label"></label>
+            <input asp-for="Tur" class="form-control" />
+            <span asp-validation-for="Tur" class="text-danger"></span>
+        </div> 
+       
+            <div class="form-group">
+                <label asp-for="Fiyat" class="control-label"></label>
+                <input asp-for="Fiyat" class="form-control" />
+                <span asp-validation-for="Fiyat" class="text-danger"></span>
+            </div>
+        <div class="form-group">
+            <label>Fotoğraf Seçimi</label>
+            <br />
+            <input type="file" id="dosyaYukle" name="file" />
+        </div> 
+            <div class="form-group" form-check>
+                <label class="form-check-label">
+                <input class="form-check-input" asp-for="StokdaVarmı"/> @Html.DisplayNameFor(Model=>Model.StokdaVarmı)
+            </label>
+            </div>
+            <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary"@*  onclick="fotoYukle()" *@ />
+            </div> 
+        </form>
+  
+<div>
+    <a asp-action="Albumler">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</div>
+
+
+ <script>
+
+
+    function fotoYukle() {
+        const file = dosyaYukle.files[0];
+        const url = ' /api/FileUpload / uploadFile2 /';
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+        })
+    }
+
+
+</script> 

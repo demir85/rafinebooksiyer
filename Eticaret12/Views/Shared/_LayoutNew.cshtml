@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Eticaret12</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Hexashop - About Page</title>
+    <script src="~/js/jquery3.7.1.js"></script>
+
+   
+   
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.css">
+
+    <link rel="stylesheet" href="~/css/templatemo-hexashop.css">
+
+    <link rel="stylesheet" href="~/css/owl-carousel.css">
+
+    <link rel="stylesheet" href="~/css/lightbox.css">
+
+    @* 
+    <script src="~/js/quantity.js"></script> *@
+    <link href="~/css/bnmcss.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    
+    <header class="header-area header-sticky "> 
+
+        <div class="container">
+            <div class="row " >
+                <div class="col-12">
+                    <nav class="main-nav" { background-color: azure;} >
+                        <!-- ***** Logo Start ***** -->
+                        <a asp-action="Index" asp-controller="Home" class="logo">
+                            <img src="~/images/logo.png" style="width:100px; height:100px;">
+                        </a>
+
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <style>
+                                body {
+                                    background-color: azure
+                                }
+                            </style>
+                            <li class="scroll-to-section"><a asp-action="Index" asp-controller="Home" class="active">Anasayfa</a></li>
+                            <li class="scroll-to-section"><a asp-action="Hakkimizda" asp-controller="Home" >Hakkımızda</a></li>
+                            <li class="scroll-to-section"><a href="/ShoppingCart/Index"> Sepet (@ViewData["SepetAdet"])</a></li>
+
+                            <partial name="_LoginPartial" />
+
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    @RenderBody()
+    <!-- ***** Footer Start ***** -->
+    <footer>
+       
+           
+      
+        <div  class="container">
+            <div  class="row">
+                <div class="col-lg-3">
+                    <div class="first-item">
+                        <div class="logo">
+                            <img src="~/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>İnsanlar Neden Bizi Tercih Ediyor !!!</h4>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Yeni bir kuruluş olmamıza rağmen, güvenilir bir politikamızın olması <br />
+                                hızlı teslimat ve iade kolaylıkları<br />
+                                uygun fiyatlı temiz kitap satışlarımızın olması bizi tercih etmelerine sebep oluyor diyebiliriz.
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Mağaza Bilgisi</h4>
+                    <ul>
+                        <li><a href="#">ikinci el bir kitap mağazasıdır,<br />
+                            19.06.2024 tarihinde kurulmuştur.
+                        </a></li>
+                       
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>İletişim Bilgileri</h4>
+                    <ul>
+                        <li><a href="#">E-Mail: rafinebooksiyer@gmail.com</a></li>
+                       
+                        <li><a href="#">Adres:İstanbul/Kadıköy</a></li>
+                       
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        
+                         @*  <p>Ödeme Yöntemleri </p> *@
+
+                            <img src="~/images/close.jpeg" alt="hexashop ecommerce templatemo">
+                        
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="~/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="~/js/popper.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="~/js/owl-carousel.js"></script>
+    <script src="~/js/accordions.js"></script>
+    <script src="~/js/datepicker.js"></script>
+    <script src="~/js/scrollreveal.min.js"></script>
+    <script src="~/js/waypoints.min.js"></script>
+    <script src="~/js/jquery.counterup.min.js"></script>
+    <script src="~/js/imgfix.min.js"></script>
+    <script src="~/js/slick.js"></script>
+    <script src="~/js/lightbox.js"></script>
+    <script src="~/js/isotope.js"></script>
+
+    <!-- Global Init -->
+    <script src="~/js/custom.js"></script>
+
+    <script>
+
+        $(function () {
+            var selectedClass = "";
+            $("p").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
+
+            });
+        });
+
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    
+</body>
+</html>

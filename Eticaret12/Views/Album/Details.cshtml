@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+
+@model Eticaret12.Models.Album
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1></h1>
+
+<div class="col-md-8">
+   
+    <dl>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KitabınAdı)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KitabınAdı)
+        </dd>
+        
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KitapArtUrl)
+        </dt>
+
+        <dd class="col-sm-10">
+            @* @Html.DisplayFor(model => model.AlbumArtUrl) *@
+            <img src="@Model.KitapArtUrl" style="width:100px;height:100px;" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StokdaVarmı)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StokdaVarmı)
+        </dd>
+    </dl>
+
+ <div>
+    <a asp-action="Edit" asp-route-id="@Model?.AlbumId">Edit</a> |
+    <a asp-action="Albumler">Back to List</a>
+    </div>
+
+</div>
